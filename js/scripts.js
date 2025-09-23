@@ -4,11 +4,11 @@ let pokemonList = [
     { name: 'Raichu', height: 8, types:  ['fire', 'flying']}
 ];
 
-for (let i = 0; i < pokemonList.length; i++) {
-    let message = "";
-    if(pokemonList[i].height > 10){
-        message = "- WOW! That's BIG!";
-    }
+//  TASK  5 
+// Declaration of pokemon array - forEach() function
 
-    document.write(`<h1 style="display:inline;">${pokemonList[i].name} (Height: ${pokemonList[i].height})</h1> <span style="font-size:1em; font-weight:normal;">${message}</span><br>`);
-}
+pokemonList.forEach(function(pokemon) {
+    document.write(
+        `<h1>${pokemon.name} (Height: ${pokemon.height})</h1>`
+    );
+});
