@@ -17,3 +17,7 @@ let pokemonList = [
   };
 })();
 
+//retrieve the pokemonList array
+pokemonRepository.getAll().forEach(function(pokemon) {
+    document.write("<h1>" + `${pokemon.name} - (Height: ${pokemon.height})` + "</h1>" );
+});
