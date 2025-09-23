@@ -7,12 +7,13 @@ let pokemonList = [
     { name: 'Charmeleon', height: 11, types:  ['ground', 'steel']},
     { name: 'Raichu', height: 8, types:  ['fire', 'flying']}
   ];
+    return {
+    add: function(pokemon) {
+      pokemonList.push(pokemon);
+    },
+    getAll: function() {
+      return pokemonList;
+    }
+  };
 })();
 
-// Declaration of pokemon array - forEach() function
-
-pokemonList.forEach(function(pokemon) {
-    document.write(
-        `<h1>${pokemon.name} (Height: ${pokemon.height})</h1>`
-    );
-});
