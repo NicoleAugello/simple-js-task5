@@ -1,7 +1,7 @@
 //  TASK  5
 
 // Declaration of pokemon array - wrapped in an IIFE
-(function () {
+let pokemonRepository = (function () {
 let pokemonList = [
     { name: 'Jigglypuff', height: 5, types:  ['poision', 'bug']},
     { name: 'Charmeleon', height: 11, types:  ['ground', 'steel']},
