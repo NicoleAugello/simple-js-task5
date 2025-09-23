@@ -21,3 +21,10 @@ let pokemonList = [
 pokemonRepository.getAll().forEach(function(pokemon) {
     document.write("<h1>" + `${pokemon.name} - (Height: ${pokemon.height})` + "</h1>" );
 });
+
+/// extra Filter Practice
+const results = pokemonRepository.getAll().filter(pokemon => pokemon.height > 10);
+document.write("<p>Filtered Results (Pokemon Height > 10):</p>");
+results.forEach(function(pokemon) {
+    document.write("<p>" + `${pokemon.name} - (Height: ${pokemon.height})` + "</p>" );
+});
