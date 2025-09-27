@@ -17,10 +17,18 @@ let pokemonList = [
   };
 })();
 
-//retrieve the pokemonList array
+//retrieve the pokemonList array + MESSAGE (CORRECTION)  display the same display as before, with the phrase WOW! That's BIG! for the larger Pokémon.
+
+
+
 pokemonRepository.getAll().forEach(function(pokemon) {
-    document.write("<h1>" + `${pokemon.name} - (Height: ${pokemon.height})` + "</h1>" );
+  let message = "";
+  if (pokemon.height > 10) {
+    message = " - Wow, that's Big!";
+  }
+  document.write(`<h1 style="display:inline;">${pokemon.name} (Height: ${pokemon.height}) </h1> <span style="font-size:1em; font-weight:normal;">${message}</span> <br>`);
 });
+
 
 /// extra Filter Practice
 const results = pokemonRepository.getAll().filter(pokemon => pokemon.height > 10);
