@@ -30,9 +30,24 @@ pokemonRepository.getAll().forEach(function(pokemon) {
 });
 
 
-/// extra Filter Practice
-const results = pokemonRepository.getAll().filter(pokemon => pokemon.height > 10);
-document.write("<p>Filtered Results (Pokemon Height > 10):</p>");
-results.forEach(function(pokemon) {
-    document.write("<p>" + `${pokemon.name} - (Height: ${pokemon.height})` + "</p>" );
+// PokemonRepository to find Pokémon whose names start with A-M.
+document .write("<br><hr><h1>Pokémon names start with A-M:</h1>");
+
+//Filter Part
+pokemonRepository.filterByName = function() {
+  return pokemonRepository.getAll().filter(function(pokemon) {
+    let firstChar = pokemon.name.charAt(0).toUpperCase();
+    return firstChar >= 'A' && firstChar <= 'M';
+  });
+};
+let foundPokemon = pokemonRepository.filterByName();
+
+// Display 
+foundPokemon.forEach(function(pokemon) {
+  let message = "";
+  if (pokemon.height > 10) {
+    message = " - Wow, that's Big!";
+  }
+  document.write(`<h2 style="display:inline;">${pokemon.name} (Height: ${pokemon.height}) </h2> <span style="font-size:1em; font-weight:normal;">${message}</span> <br>`);
 });
+
