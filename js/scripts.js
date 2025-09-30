@@ -31,18 +31,20 @@ pokemonRepository.getAll().forEach(function(pokemon) {
 
 
 // PokemonRepository to find Pokémon whose names start with A-M.
-document .write("<br><hr><h1>Pokémon names start with A-M:</h1>");
+document .write("<br><hr><h1>Pokémon Name Filter:</h1>");
 
-//Filter Part
-pokemonRepository.filterByName = function() {
+// Filter function with parameter for flexible behavior
+pokemonRepository.filterByName = function(name) {
   return pokemonRepository.getAll().filter(function(pokemon) {
-    let firstChar = pokemon.name.charAt(0).toUpperCase();
-    return firstChar >= 'A' && firstChar <= 'M';
+    // Filter Pokémon whose name matches the given parameter (case-insensitive)
+    return pokemon.name.toLowerCase() === name.toLowerCase();
   });
 };
-let foundPokemon = pokemonRepository.filterByName();
 
-// Display 
+// Usage: Find Pokémon named 'Charmeleon'
+let foundPokemon = pokemonRepository.filterByName('Charmeleon');
+
+// Display
 foundPokemon.forEach(function(pokemon) {
   let message = "";
   if (pokemon.height > 10) {
